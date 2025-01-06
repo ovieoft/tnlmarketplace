@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Replica Landing Page</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap"rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+          body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f3f3;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f3f3;
+}
+
+header {
+    background-color: #0d0e10;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-text {
+    font-family: "UnifrakturMaguntia", serif;
+    font-size: 2rem;
+    color: rgb(244, 240, 240);
+}
+
+.header-logo {
+    padding-left: 20px;
+}
+
+.header-logo img {
+    height: 30px;
+}
+
+.header-search {
+    display: flex;
+    flex: 1;
+    max-width: 800px;
+    margin: 0 20px;
+}
+
+.header-search input[type="text"] {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    flex: 1;
+}
+
+.header-search button {
+    background-color: #febd69;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.header-nav {
+    display: flex;
+    font-size: 2%;
+    font-weight: bold;
+    padding-right: 20px;
+    align-items: center;
+}
+
+.header-nav a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 6px;
+}
+
+.header-nav a:hover {
+    border: 1px solid white;
+    border-radius: 3px;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin: 10px;
+    width: calc(33.333% - 20px);
+    box-sizing: border-box;
+    display: flex; /* Flex to manage image and text layout */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.product-card .image-container {  
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px; 
+    width: 100%;  
+    margin-bottom: 10px; /* space before the text */
+}
+
+.product-card .image-container img {
+    max-width: 100%; /* Each image takes its column */
+    height: auto;
+}
+
+.product-card .image-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;  /* Center it */
+    transform: translateX(-50%); 
+}
+
+.product-card h2 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.product-card p {
+    color: #555;
+}
+
+/* Styles for horizontal product card */
+.horizontal-card {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; 
+  text-align: left; 
+  padding: 15px;
+}
+.horizontal-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px; 
+    font-weight: bold;
+    color: black;
+}
+.horizontal-card .image-container {
+  display: flex; 
+  flex-wrap: nowrap; 
+  overflow-x: auto; 
+  width: 100%; 
+  gap: 10px;
+  align-items: center; 
+}
+
+.horizontal-card .image-container img {
+    max-width: 120px;  
+    height: auto;
+    flex-shrink: 0; 
+}
+
+.horizontal-card > p {
+    margin-top: 10px;
+    color: #555;
+}
+
+
+footer {
+    background-color: #0d0e10;
+    color: #e9e4e4;
+    padding: 40px 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.footer-column:last-child {
+    margin-right: 0;
+}
+
+.footer-column h4 {
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.footer-column ul li a:hover {
+    text-decoration: underline;
+}
+
+.subscribe-section p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.subscribe-form {
+    display: flex;
+}
+
+.subscribe-form input[type="email"] {
+    padding: 8px;
+    border: 1px solid #444;
+    border-radius: 4px 0 0 4px;
+    background-color: #333;
+    color: white;
+}
+
+.subscribe-form button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.subscribe-form button:hover {
+    background-color: #c82333;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.social-icons a:hover {
+    color: #aaa;
+}
+
+.footer-bottom {
+    text-align: left;
+    padding-top: 30px;
+    border-top: 1px solid #333;
+    margin-top: 30px;
+    font-size: 0.8rem;
+}
+
+.footer-bottom  {
+    color: #777;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span class="logo-text">The Toronto House</span>
+        </div>
+        <div class="header-search">
+            <input type="text" placeholder="Search products">
+            <button>Search</button>
+        </div>
+         <div class="header-nav">
+            <a href="CyberSignin.html">Security</a>
+            <a href="music.html">Music</a>
+            <a href="https://thetorontohouse.ca/" target="_blank">News</a>
+              <a href="#">Account</a>
+              <a href="#">Orders</a>
+              <a href="#">Cart</a>
+         </div>
+    </header>
+
+    <main>
+        <!-- Product Card 1 -->
+        <div class="product-card">
+            <div class="image-container">
+               <img src="images/Ecosmart.jpg" alt="Product 1">
+               <img src="images/Hoddie1.jpg" alt="Product 1">
+            </div>
+            <h2 style="font-size: 1.2rem; font-weight: bold;">Men's Clothes</h2>
+            <p>See More...</p>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="product-card">
+            <div class="image-container">
+            <img src="images/pendant-women.png" alt="Product 2">
+            <img src="images/Earring_set.png" alt="Product 2">
+            </div>
+            <h2 style="font-size: 1.2rem; font-weight: bold;">Jewellery</h2>
+            <p>See More...</p>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="product-card">
+            <div class="image-container">
+             <img src="images/cream-white.png" alt="Product 3">
+             <img src="images/Crocs Unisex.jpg" alt="Product 3">
+            </div>
+            <h2 style="font-size: 1.2rem; font-weight: bold;">Shoes</h2>
+            <p>Check it out...</p>
+        </div>
+
+       <div class="product-card">
+        <div class="image-container">
+            <img src="images/Iphone 14.png" alt="Product 4">
+            <img src="images/Acer-Nitro Gaming.png" alt="Product 4">
+            </div>
+            <h2 style="font-size: 1.2rem; font-weight: bold;">Gadgets</h2>
+            <p>...</p>
+        </div>
+
+        <div class="product-card">
+            <div class="image-container">
+            <img src="images/backpack.1.png" alt="Product 5">
+            <img src="images/pander 2way.png" alt="Product 5">
+        </div>
+        <h2 style="font-size: 1.2rem; font-weight: bold;">Bags</h2>
+            <p>....</p>
+        </div>
+        
+           <div class="product-card">
+            <div class="image-container">
+            <img src="images/Wetlips.png" alt="Product 6">
+            <img src="images/Lip Liner.png" alt="Product 6">
+        </div>
+        <h2 style="font-size: 1.2rem; font-weight: bold;">Beauty & Skincare</h2>
+            <p>...</p>
+        </div>
+      
+         <!-- Horizontal Product Card -->
+        <div class="product-card horizontal-card">
+             <h2>Top products for you</h2>
+             <div class="image-container">
+              <img src="images/Men T-shirt.png" alt="Product 7">
+              <img src="images/red gown-suit.png" alt="Product 7">
+              <img src="images/backpack.1.png" alt="Product 7">
+              <img src="images/Night Cream.png" alt="Product 7">
+               <img src="images/Headset.png" alt="Product 7">
+              <img src="images/pander 2way.png" alt="Product 7">
+             </div>
+        </div>
+
+        <div class="product-card horizontal-card">
+            <h2>Winter Sales</h2>
+            <div class="image-container">
+             <img src="images/winter-coat.png" alt="Product 7">
+             <img src="images/Winter-boots.png" alt="Product 7">
+             <img src="images/winter-scarf.png" alt="Product 7">
+             <img src="images/black curly.png" alt="Product 7">
+              <img src="images/Headset.png" alt="Product 7">
+             <img src="images/pander 2way.png" alt="Product 7">
+            </div>
+       </div>
+
+       <div class="product-card horizontal-card">
+        <h2>New Year Deals</h2>
+        <div class="image-container">
+         <img src="images/newyear-earrings.png" alt="Product 7">
+         <img src="images/red gown-suit.png" alt="Product 7">
+         <img src="images/backpack.1.png" alt="Product 7">
+         <img src="images/Night Cream.png" alt="Product 7">
+          <img src="images/Headset.png" alt="Product 7">
+         <img src="images/pander 2way.png" alt="Product 7">
+        </div>
+   </div>
+
+        
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>NEWS</h4>
+                <ul>
+                    <li><a href="https://thetorontohouse.ca/" target="_blank">Advertise With US</a></li>
+                    <li><a href="https://thetorontohouse.ca/" target="_blank">Store</a></li>
+                    <li><a href="https://thetorontohouse.ca/" target="_blank">Trending</a></li>
+                    <li><a href="https://thetorontohouse.ca/" target="_blank">World News</a></li>
+                    <li><a href="https://thetorontohouse.ca/" target="_blank">Health & Wellness</a></li>
+                    <li><a href="https://thetorontohouse.ca/" target="_blank">Tech</a></li>
+                    <li><a href="https://thetorontohouse.ca/" target="_blank">Food & Nutrition</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>PAGES</h4>
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">DMCA Policy</a></li>
+                    <li><a href="#">Terms Of Use</a></li>
+                    <li><a href="#">Policy</a></li>
+                    <li><a href="#">SIGN UP for News Letter</a></li>
+                    <li><a href="#">Advertise With US</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>PRODUCT CATEGORIES</h4>
+                <ul>
+                    <li><a href="#">Car</a></li>
+                    <li><a href="#">House</a></li>
+                    <li><a href="#">Jewellery</a></li>
+                    <li><a href="#">Shirt</a></li>
+                    <li><a href="#">Shoe</a></li>
+                    <li><a href="#">tech</a></li>
+                    <li><a href="#">Uncategorized</a></li>
+                </ul>
+            </div>
+            <div class="footer-column subscribe-section">
+                <h4>Subscribe to Updates</h4>
+                <p>Subscribe to our newsletter and never miss our latest news</p>
+                <p>Subscribe my Newsletter for New Posts & tips Let's stay updated!</p>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Your email address..">
+                    <button type="submit">SUBSCRIBE</button>
+                </form>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fab fa-vimeo-v"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 TorontoHouse. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

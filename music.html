@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Replica Landing Page</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap"rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+          body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f3f3;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f3f3;
+}
+
+header {
+    background-color: #0d0e10;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky; /* Keep header at the top */
+    top: 0;
+    z-index: 10; /* Ensure it's above other content */
+}
+
+.logo-text {
+    font-family: "UnifrakturMaguntia", serif;
+    font-size: 2rem;
+    color: rgb(244, 240, 240);
+}
+
+.header-logo {
+    padding-left: 20px;
+}
+
+.header-logo img {
+    height: 30px;
+}
+
+.header-search {
+    display: flex;
+    flex: 1;
+    max-width: 800px;
+    margin: 0 20px;
+}
+
+.header-search input[type="text"] {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    flex: 1;
+}
+
+.header-search button {
+    background-color: #febd69;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.header-nav {
+    display: flex;
+    font-size: 2%;
+    font-weight: bold;
+    padding-right: 20px;
+    align-items: center;
+}
+
+.header-nav a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 6px;
+}
+
+.header-nav a:hover {
+    border: 1px solid white;
+    border-radius: 3px;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Added styles for the sidebar layout */
+.main-container {
+    display: flex;
+}
+
+aside {
+    width: 200px;
+    background-color: #fff;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    /* height: calc(100vh - 60px);  Removed fixed height */
+    overflow-y: auto; /* Enable scrolling if content overflows */
+    position: sticky; /* Make sidebar stick on scroll */
+    top: 60px; /* Adjust top to account for header height */
+    height: calc(100vh - 60px); /* Set a maximum height for initial view */
+}
+
+aside h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside li {
+    margin-bottom: 8px;
+}
+
+aside a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 5px 0;
+}
+
+aside a:hover {
+    color: #007bff;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Styles for the "Today's biggest hits" section */
+.trending-section {
+    margin-bottom: 20px;
+}
+
+.trending-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.trending-header h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.trending-header a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.trending-items {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    gap: 15px; /* Spacing between cards */
+}
+
+.trending-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 150px; /* Adjust card width as needed */
+    flex: 0 0 auto; /* Don't allow cards to grow or shrink excessively */
+}
+
+.trending-card img {
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: block; /* Prevent extra space below image */
+}
+
+.trending-card-content {
+    padding: 10px;
+}
+
+.trending-card-content h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.trending-card-content p {
+    font-size: 0.8rem;
+    color: #555;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span class="logo-text">The Toronto House</span>
+        </div>
+        <div class="header-search">
+            <input type="text" placeholder="What do want to listen to">
+            <button>Search</button>
+        </div>
+         <div class="header-nav">
+            <img src="images/Bell.png" alt="notification bell">
+              <a href="index.html" class="home-icon">
+                <span class="logo-text">Home</span>
+            </a>
+         </div>
+    </header>
+
+    <div class="main-container">
+        <aside>
+            <h2>Popular Artists</h2>
+            <ul>
+                <li><a href="#">Drake</a></li>
+                <li><a href="#">The Weeknd</a></li>
+                <li><a href="#">Justin Bieber</a></li>
+                <li><a href="#">Shawn Mendes</a></li>
+                <li><a href="#">Celine Dion</a></li>
+                <li><a href="#">Neil Young</a></li>
+                <li><a href="#">Joni Mitchell</a></li>
+                <li><a href="#">Leonard Cohen</a></li>
+                <li><a href="#">Michael Bublé</a></li>
+                <li><a href="#">Alessia Cara</a></li>
+                <li><a href="#">Davido</a></li>
+                <li><a href="#">Wizkid</a></li>
+                <li><a href="#">Oma Lay</a></li>
+                <li><a href="#">Rema</a></li>
+                <li><a href="#">Burna Boy</a></li>
+                <li><a href="#">Tems</a></li>
+                <li><a href="#">Aya starr</a></li>
+                </ul>
+        </aside>
+
+        <main>
+            <p>Welcome to The Toronto House! Find your favourite Canadian music here.</p>
+
+            <div class="trending-section">
+                <div class="trending-header">
+                    <h2>Today's biggest hits</h2>
+                    <a href="#">Show all</a>
+                </div>
+                <div class="trending-items">
+                    <div class="trending-card">
+                        <img src="images/post_malone.png" alt="Mega Hit Mix">
+                        <div class="trending-card-content">
+                            <h3>Mega Hit Mix</h3>
+                            <p>A mega mix of 75 favorites from the last...</p>
+                            <p> Immerse yourself in the heart and soul of this best Mega hit mix</p>
+                            <p> From Energetic anthems to unforgettable classics</p>
+                            <p> 'Keep on vibin'</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img src="images/Drake.png" alt="HOT COUNTRY">
+                        <div class="trending-card-content">
+                            <h3>HOT COUNTRY</h3>
+                            <p>Today's top country hits. Cover: Morgan Wallen</p>
+                            <p>this playlist has something for every music lover.</p>
+                            <p> Perfect for parties, road trips, or just vibing out, it’s your ultimate companion for non-stop hits!</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img src="images/billie-ellish.png" alt="VIVA LATINO">
+                        <div class="trending-card-content">
+                            <h3>VIVA LATINO</h3>
+                            <p>Today's top Latin hits, elevando nuestra...</p>
+                            <p>Showcasing today’s top Latin hits</p>
+                            <p>"¡Elevemos nuestra música al siguiente nivel!"</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img src="images/Davido.png" alt="NAIJA">
+                        <div class="trending-card-content">
+                            <h3>NAIJA</h3>
+                            <p>Nigeria's hottest tracks. Cover: Davido</p>
+                            <p>Dive into the pulse of Nigeria’s vibrant music scene with NAIJA</p>
+                            <p>Packed with the hottest tracks from top Nigerian artists</p>
+                            <p>Discover the songs that are taking the world by storm with Viral Hits.</p>
+                            <p>this playlist is your gateway to Afrobeat excellence.</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img src="images/kendrick_lamar.png" alt="Viral Hits">
+                        <div class="trending-card-content">
+                            <h3>Viral Hits</h3>
+                            <p>Viral, trending and taking off.</p>
+                            <p>Discover the songs that are taking the world by storm with Viral Hits.</p>
+                            <p>from trending sensations to the internet’s favorites</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img src="images/Cardi_b.png" alt="Get Popped!">
+                        <div class="trending-card-content">
+                            <h3>Get Popped!</h3>
+                            <p>pure pop sauce. Cover: CYRIL</p>
+                            <p> your go-to playlist for the freshest pop anthems.</p>
+                            <p> it’s a hit parade you can’t resist.</p>
+                            <p>Packed with pure pop flavor and undeniable energy</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trending-section">
+                <div class="trending-header">
+                    <h2>Naija's Top hits</h2>
+                    <a href="#">Show all</a>
+                </div>
+                <div class="trending-items">
+                    <div class="trending-card">
+                        <img src="images/Wizkid.png" alt="Mega Hit Mix">
+                        <div class="trending-card-content">
+                            <h3>Morayo</h3>
+                            <p>Wizkid Album released 2024, with lots of hit songs.</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img src="images/Davido.png" alt="HOT COUNTRY">
+                        <div class="trending-card-content">
+                            <h3>Funds</h3>
+                            <p>Other top hits from Davido..</p>
+                            <p>like Awuke, Ogechi, Twe Twe (Remix)</p>
+                            <p>Check it out now</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img src="images/Rema.png" alt="VIVA LATINO">
+                        <div class="trending-card-content">
+                            <h3>HEIS</h3>
+                            <p>Rema Album released 2024,</p>
+                            <p>Other songs from this artist </p>
+                            <p>Fi kan we kan</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img src="images/Ur burna.png" alt="NAIJA">
+                        <div class="trending-card-content">
+                            <h3>Bundle by Bundle</h3>
+                            <p>song by Burna boy...</p>
+                            <p>Other top hits from him..</p>
+                            <p>Tshwala Bam</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img src="images/Tems.png" alt="Viral Hits">
+                        <div class="trending-card-content">
+                            <h3>Love me Jeje</h3>
+                            <p>song by tems..</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img src="images/Shallipopi.png" alt="Get Popped!">
+                        <div class="trending-card-content">
+                            <h3>Trending</h3>
+                            <p>pure afrobeat..</p>
+                            <p>by shallipopi.</p>
+                            <p>with other top hits</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trending-section">
+                <div class="trending-header">
+                    <h2>Canada Top hits</h2>
+                    <a href="#">Show all</a>
+                </div>
+                <div class="trending-items">
+                    <div class="trending-card">
+                        <img src="images/Weeknd.png" alt="Mega Hit Mix">
+                        <div class="trending-card-content">
+                            <h3>Mega Hit Mix</h3>
+                            <p>A mega mix of 75 favorites from the last...</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img src="images/shaboozey.png" alt="HOT COUNTRY">
+                        <div class="trending-card-content">
+                            <h3>HOT COUNTRY</h3>
+                            <p>Today's top country hits. Cover: Morgan Wallen</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img src="images/Dax.png" alt="VIVA LATINO">
+                        <div class="trending-card-content">
+                            <h3>VIVA LATINO</h3>
+                            <p>Today's top Latin hits, elevando nuestra...</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img src="images/Taylor-swift.png" alt="NAIJA">
+                        <div class="trending-card-content">
+                            <h3>NAIJA</h3>
+                            <p>Nigeria's hottest tracks. Cover: Davido</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img src="images/Tatw McRae.png" alt="Viral Hits">
+                        <div class="trending-card-content">
+                            <h3>Viral Hits</h3>
+                            <p>Viral, trending and taking off.</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img src="images/Sabrina-Carpenter.png" alt="Get Popped!">
+                        <div class="trending-card-content">
+                            <h3>Get Popped!</h3>
+                            <p>pure pop sauce. Cover: CYRIL</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trending-section">
+                <div class="trending-header">
+                    <h2>Recommended</h2>
+                    <a href="#">Show all</a>
+                </div>
+                <div class="trending-items">
+                    <div class="trending-card">
+                        <img src="images/post_malone.png" alt="Mega Hit Mix">
+                        <div class="trending-card-content">
+                            <h3>Mega Hit Mix</h3>
+                            <p>A mega mix of 75 favorites from the last...</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img src="images/Drake.png" alt="HOT COUNTRY">
+                        <div class="trending-card-content">
+                            <h3>HOT COUNTRY</h3>
+                            <p>Today's top country hits. Cover: Morgan Wallen</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img src="images/billie-ellish.png" alt="VIVA LATINO">
+                        <div class="trending-card-content">
+                            <h3>VIVA LATINO</h3>
+                            <p>Today's top Latin hits, elevando nuestra...</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img src="images/Davido.png" alt="NAIJA">
+                        <div class="trending-card-content">
+                            <h3>NAIJA</h3>
+                            <p>Nigeria's hottest tracks. Cover: Davido</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img src="images/kendrick_lamar.png" alt="Viral Hits">
+                        <div class="trending-card-content">
+                            <h3>Viral Hits</h3>
+                            <p>Viral, trending and taking off.</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img src="images/Cardi_b.png" alt="Get Popped!">
+                        <div class="trending-card-content">
+                            <h3>Get Popped!</h3>
+                            <p>pure pop sauce. Cover: CYRIL</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Your other main content will go here -->
+        </main>
+    </div>
+
+</body>
+</html>
